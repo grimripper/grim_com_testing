@@ -1,0 +1,27 @@
+import "unknwn.idl";
+
+[
+	object,
+	uuid(1221db62-f3d8-11d4-825d-00104b3646c0),
+	helpstring("interface IAdd")
+]
+
+interface IAdd : IUnknown
+{
+	HRESULT SetFirstNumber(long nX1);
+	HRESULT SetSecondNumber(long nX2);
+	HRESULT DoTheAddition([out,retval] long* pBuffer);
+};
+
+[
+	uuid(3ff1aab8-f3d8-11d4-825d-00104b3646c0),
+	helpstring("interfaces for implementations")
+]
+
+library MathLibImpl
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IAdd;
+}
